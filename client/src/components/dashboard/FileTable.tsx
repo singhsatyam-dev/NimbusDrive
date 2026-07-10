@@ -9,6 +9,7 @@ import {
   File,
 } from "lucide-react";
 
+import { useState } from "react";
 import type { FileData } from "@/services/file.service";
 import ConfirmDialog from "@/components/common/ConfirmDialog";
 import { useDelete } from "@/hooks/useDelete";
@@ -58,9 +59,24 @@ const formatDate = (date: string) => {
 };
 
 const FileTable = ({ files }: Props) => {
+  const [favorites, setFavorites] = useState<Set<string>>(new Set());
   const deleteMutation = useDelete();
   const handleDownload = useDownload();
   const { share, unshare } = useShare();
+
+  const toggleFavorite = (id: string) => {
+    setFavorites((prev) => {
+      const updated = new Set(prev);
+
+      if (updated.has(id)) {
+        updated.delete(id);
+      } else {
+        updated.add(id);
+      }
+
+      return updated;
+    });
+  };
 
   return (
     <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
@@ -130,8 +146,17 @@ const FileTable = ({ files }: Props) => {
                 {/* Actions */}
                 <td className="px-6">
                   <div className="flex justify-end gap-2">
-                    <button className="rounded-lg p-2 transition hover:bg-slate-100">
-                      <Star className="h-4 w-4" />
+                    <button
+                      onClick={() => toggleFavorite(file._id)}
+                      className="rounded-lg p-2 transition-all duration-300 hover:bg-amber-50"
+                    >
+                      <Star
+                        className={`h-4 w-4 transition-all duration-300 ${
+                          favorites.has(file._id)
+                            ? "fill-yellow-400 text-yellow-400 drop-shadow-[0_0_6px_rgba(250,204,21,0.9)]"
+                            : "text-slate-500 hover:text-yellow-500"
+                        }`}
+                      />
                     </button>
 
                     <button

@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import Logo from "@/components/common/Logo";
+import ConfirmDialog from "../common/ConfirmDialog";
 
 import { menuItems } from "@/constants/navigation";
 import { useAuthStore } from "@/store/authStore";
@@ -62,13 +63,18 @@ const MobileSidebar = () => {
         </nav>
 
         <div className="border-t p-4">
-          <button
-            onClick={handleLogout}
-            className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-red-500 hover:bg-red-50"
+          <ConfirmDialog
+            title="Logout"
+            description="Are you sure you want to logout from your NimbusDrive workspace?"
+            confirmText="Logout"
+            cancelText="Cancel"
+            onConfirm={handleLogout}
           >
-            <LogOut className="h-5 w-5" />
-            Logout
-          </button>
+            <button className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-red-500 transition hover:bg-red-50">
+              <LogOut className="h-5 w-5" />
+              Logout
+            </button>
+          </ConfirmDialog>
         </div>
       </SheetContent>
     </Sheet>

@@ -32,7 +32,7 @@ const TopNavbar = () => {
           <MobileSidebar />
 
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+            <p className="hidden text-xs font-semibold uppercase tracking-[0.3em] text-blue-700 md:block">
               NimbusDrive Workspace
             </p>
             <h1 className="mt-1 text-2xl font-semibold tracking-tight text-foreground">
