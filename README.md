@@ -1,4 +1,4 @@
-# ☁️ CloudVault
+# ☁️ NimbusDrive
 
 A modern cloud storage platform built with the MERN stack that allows users to securely upload, manage, download, and share files from anywhere.
 
