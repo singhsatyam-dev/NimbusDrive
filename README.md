@@ -1,120 +1,120 @@
 # ☁️ NimbusDrive
 
-A modern cloud storage platform built with the MERN stack that allows users to securely upload, manage, download, and share files from anywhere.
+A modern cloud storage platform built with the MERN Stack that allows users to securely upload, organize, download, and share files from anywhere.
 
-Built using React, TypeScript, Express, MongoDB Atlas, AWS S3, and deployed on Vercel + Render.
+NimbusDrive combines a clean, modern interface with secure cloud storage powered by AWS S3, making file management simple, fast, and reliable.
 
 ---
 
 ## 🚀 Live Demo
 
-Frontend:
+### Frontend
 
-Backend API:
+https://nimbus-drive-rho.vercel.app/
 
----
+### Backend API
 
-## 📸 Screenshots
-
-### Login
-
-![Login](screenshots/login.png)
+https://nimbusdrive-api.onrender.com
 
 ---
 
-### Dashboard
+# 📸 Screenshots
 
-![Dashboard](screenshots/dashboard.png)
+## Login Page
 
----
-
-### Upload Files
-
-![Upload](screenshots/upload-dialog.png)
+![Login](screenshots/Login-Nimbus.png)
 
 ---
 
-### My Files
+## Dashboard
 
-![My Files](screenshots/my-files.png)
-
----
-
-### Shared Files
-
-![Shared Files](screenshots/shared-files.png)
+![Dashboard](screenshots/Dashboard-Nimbus-1.png)
 
 ---
 
-### Mobile Responsive
+## Upload Files
 
-![Mobile](screenshots/mobile-view.png)
+![Upload file](screenshots/Share-Nimbus.png)
+
+---
+
+## My Files
+
+![My files](screenshots/MyFiles-Nimbus.png)
+
+---
+
+## Shared Files
+
+![Shared Ui](screenshots/SharedFiles-Nimbus-1.png)
+
+---
+
+## Mobile Responsive
+
+![Mobile](screenshots/Mobile-nimbus.png)
 
 ---
 
 # ✨ Features
 
-### Authentication
+## 🔐 Authentication
 
-- User Registration
-- User Login
+- User Registration & Login
 - JWT Authentication
 - Protected Routes
-- Public Routes
-- Automatic Redirects
+- Persistent User Sessions
+- Logout Confirmation Dialog
+- Form Validation using React Hook Form + Zod
 
 ---
 
-### File Management
+## ☁️ File Management
 
-- Upload files
-- Download files
-- Delete files
+- Upload files to AWS S3
+- Download files securely
+- Delete uploaded files
 - View uploaded files
-- Secure cloud storage
-- AWS S3 integration
+- Storage Usage Tracker
+- File Type Detection
+- Dynamic Dashboard Statistics
 
 ---
 
-### Sharing
+## 🔗 File Sharing
 
-- Generate secure share links
-- Disable sharing
-- Public download links
-- Token-based sharing
-
----
-
-### Dashboard
-
-- Dynamic statistics
-- Storage usage
-- File count
-- Shared file count
-- Responsive layout
+- Share files instantly
+- Disable shared links
+- Public shareable URLs
+- Share status indicator
 
 ---
 
-### Search & Filtering
+## 🔍 Search & Filtering
 
-- Search files
-- Filter by type
-- Filter shared/private
-- Sort by:
-  - Name
-  - Size
-  - Date
+- Search files by name
+- Filter by file type
+- Filter Shared / Private files
+- Sort files by
+  - Newest
+  - Oldest
+  - Largest
+  - Smallest
+  - Name (A-Z)
 
 ---
 
-### UI
+## 🎨 Modern UI
 
-- Responsive Design
-- Mobile Sidebar
+- Premium Dashboard Design
+- Fully Responsive Layout
+- Mobile Navigation Drawer
 - Loading Skeletons
-- Confirmation Dialogs
 - Empty States
+- Confirmation Dialogs
 - Toast Notifications
+- Clean Light Theme
+- Modern Card-Based Interface
 
 ---
 
@@ -125,15 +125,16 @@ Backend API:
 - React
 - TypeScript
 - Vite
-- Tailwind CSS
-- React Router
+- Tailwind CSS v4
+- Shadcn UI
+- React Router DOM
 - TanStack Query
 - Zustand
 - Axios
 - React Hook Form
 - Zod
-- Shadcn UI
-- Lucide Icons
+- Lucide React
+- Sonner
 
 ---
 
@@ -144,7 +145,7 @@ Backend API:
 - TypeScript
 - MongoDB Atlas
 - Mongoose
-- JWT
+- JWT Authentication
 - Multer
 
 ---
@@ -160,23 +161,27 @@ Backend API:
 
 # 📂 Project Structure
 
-```
-cloudvault
+```text
+NimbusDrive
 │
 ├── client
 │   ├── components
 │   ├── pages
-│   ├── services
 │   ├── hooks
-│   └── store
+│   ├── services
+│   ├── store
+│   ├── layouts
+│   └── assets
 │
 ├── server
+│   ├── config
 │   ├── controllers
 │   ├── middleware
 │   ├── models
 │   ├── routes
-│   ├── config
-│   └── utils
+│   ├── services
+│   ├── utils
+│   └── src
 │
 └── screenshots
 ```
@@ -188,14 +193,14 @@ cloudvault
 ## Clone Repository
 
 ```bash
-git clone https://github.com/paritoshXsingh/cloudvault.git
+git clone https://github.com/singhsatyam-dev/NimbusDrive
 
-cd cloudvault
+cd NimbusDrive
 ```
 
 ---
 
-## Backend
+## Backend Setup
 
 ```bash
 cd server
@@ -207,7 +212,7 @@ npm run dev
 
 ---
 
-## Frontend
+## Frontend Setup
 
 ```bash
 cd client
@@ -221,7 +226,7 @@ npm run dev
 
 # 🔐 Environment Variables
 
-## Backend
+## Backend (.env)
 
 ```env
 PORT=
@@ -245,7 +250,7 @@ CLIENT_URL=
 
 ---
 
-## Frontend
+## Frontend (.env)
 
 ```env
 VITE_API_URL=
@@ -253,48 +258,62 @@ VITE_API_URL=
 
 ---
 
-# 🏗 Architecture
+# 🏗 System Architecture
 
-```
-React (Vercel)
-
-↓
-
-Express API (Render)
-
-↓
-
-MongoDB Atlas
-
-↓
-
-AWS S3
+```text
+                React + TypeScript
+                     (Vercel)
+                         │
+                         │
+                         ▼
+               Express.js REST API
+                    (Render)
+                         │
+        ┌────────────────┴───────────────┐
+        │                                │
+        ▼                                ▼
+ MongoDB Atlas                    AWS S3 Storage
 ```
 
 ---
 
-# 🎯 Future Improvements
+# 🌟 Highlights
 
-- Starred Files
-- Folder Organization
-- Storage Quotas
-- File Preview
-- Drag & Drop Upload
-- Multi-file Upload
-- Profile Management
+- Secure cloud storage powered by AWS S3
+- JWT-based authentication
+- Responsive dashboard
+- File upload & download
+- Secure file sharing
+- Modern UI redesign
+- Production deployment using Vercel & Render
+- Built using TypeScript across frontend and backend
+
+---
+
+# 🚀 Future Improvements
+
+- 📁 Folder Management
+- 🖼 File Preview
+- 📤 Drag & Drop Upload
+- 📦 Multi-file Upload
+- 👤 User Profile Settings
+- 📊 Storage Analytics
+- 🌙 Dark Mode
 
 ---
 
 # 👨‍💻 Author
 
-**Paritosh Singh**
+**Satyam Kumar Singh**
 
 GitHub:
-https://github.com/paritoshXsingh
+https://github.com/singhsatyam-dev
 
 LinkedIn:
-https://www.linkedin.com/in/paritosh-singh-dev
+https://www.linkedin.com/in/satyam-kumar-singh-25087b291
 
 ---
 
-## ⭐ If you found this project useful, consider giving it a star!
+## ⭐ Support
+
+If you found this project helpful, consider giving it a **Star ⭐** on GitHub.
