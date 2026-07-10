@@ -1,81 +1,102 @@
-import { Cloud, FileText, Image, Star, HardDrive } from "lucide-react";
+import { Cloud, Database, ShieldCheck, Zap } from "lucide-react";
 
-const files = [
+const features = [
   {
-    icon: FileText,
-    name: "Resume.pdf",
-    color: "text-red-500",
+    icon: Database,
+    title: "AWS S3 Cloud Storage",
   },
   {
-    icon: Image,
-    name: "Vacation.png",
-    color: "text-blue-500",
+    icon: ShieldCheck,
+    title: "Secure File Sharing",
   },
   {
-    icon: Star,
-    name: "Portfolio.zip",
-    color: "text-yellow-500",
+    icon: Zap,
+    title: "Fast File Uploads",
   },
 ];
 
 const AuthPreview = () => {
   return (
-    <div className="hidden lg:flex flex-1 items-center justify-center bg-gradient-to-br from-indigo-600 via-indigo-500 to-violet-600 p-12">
-      <div className="w-full max-w-lg">
-        <div className="mb-8 flex items-center gap-3">
-          <div className="rounded-xl bg-white/15 p-3 backdrop-blur">
+    <div
+      className="relative hidden flex-1 overflow-hidden lg:flex"
+      style={{
+        background: `
+          radial-gradient(circle at 90% 15%, rgba(96,165,250,.22), transparent 22%),
+          radial-gradient(circle at 80% 82%, rgba(59,130,246,.35), transparent 30%),
+          radial-gradient(circle at 0% 100%, rgba(29,78,216,.35), transparent 28%),
+          linear-gradient(
+            135deg,
+            #0B3EA8 0%,
+            #1652C8 28%,
+            #2563EB 58%,
+            #3B82F6 100%
+          )
+        `,
+      }}
+    >
+      {/* Soft Glow */}
+      <div className="absolute -bottom-28 -left-24 h-96 w-96 rounded-full bg-sky-300/10 blur-[120px]" />
+
+      {/* Decorative Dots */}
+      <div className="absolute right-20 top-20 grid grid-cols-4 gap-3 opacity-25">
+        {Array.from({ length: 16 }).map((_, i) => (
+          <span key={i} className="h-2 w-2 rounded-full bg-white/30" />
+        ))}
+      </div>
+
+      <div className="relative z-10 flex w-full flex-col justify-center px-14 py-12">
+        {/* Logo */}
+
+        <div className="flex items-center gap-4">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15 backdrop-blur-md shadow-lg">
             <Cloud className="h-7 w-7 text-white" />
           </div>
 
           <div>
-            <h1 className="text-4xl font-bold text-white">CloudVault</h1>
+            <h1 className="text-3xl font-bold tracking-tight text-white">
+              NimbusDrive
+            </h1>
 
-            <p className="text-indigo-100">Store. Share. Access.</p>
+            <p className="text-sm text-blue-100">Store. Organize. Share.</p>
           </div>
         </div>
 
-        <p className="mb-8 max-w-md text-lg leading-relaxed text-indigo-100">
-          Secure cloud storage that lets you upload, organize and share files
-          from anywhere.
-        </p>
+        {/* Hero */}
 
-        <div className="rounded-3xl bg-white p-6 shadow-2xl">
-          <div className="mb-5 flex items-center justify-between">
-            <h2 className="font-semibold text-slate-900">Recent Files</h2>
+        <div className="mt-14">
+          <h2 className="text-5xl font-bold leading-[1.05] tracking-tight text-white xl:text-6xl">
+            Your files.
+            <br />
+            Organized.
+            <br />
+            Accessible
+            <br />
+            everywhere.
+          </h2>
 
-            <HardDrive className="h-5 w-5 text-indigo-600" />
-          </div>
+          <p className="mt-7 max-w-lg text-lg leading-8 text-blue-100">
+            NimbusDrive gives you a secure workspace to upload, organize and
+            share your files from anywhere.
+          </p>
+        </div>
 
-          <div className="space-y-3">
-            {files.map((file) => (
+        {/* Features */}
+
+        <div className="mt-10 space-y-3">
+          {features.map((feature) => {
+            const Icon = feature.icon;
+
+            return (
               <div
-                key={file.name}
-                className="flex items-center justify-between rounded-xl border border-slate-200 p-3"
+                key={feature.title}
+                className="flex w-fit items-center gap-3 rounded-full border border-white/15 bg-white/10 px-5 py-3 backdrop-blur-md transition-all duration-300 hover:bg-white/15"
               >
-                <div className="flex items-center gap-3">
-                  <file.icon className={`h-5 w-5 ${file.color}`} />
+                <Icon className="h-5 w-5 text-blue-200" />
 
-                  <span className="text-sm font-medium">{file.name}</span>
-                </div>
-
-                <span className="rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-700">
-                  Synced
-                </span>
+                <span className="font-medium text-white">{feature.title}</span>
               </div>
-            ))}
-          </div>
-
-          <div className="mt-6">
-            <div className="mb-2 flex justify-between text-sm">
-              <span>Storage</span>
-
-              <span>7.2 / 10 GB</span>
-            </div>
-
-            <div className="h-2 overflow-hidden rounded-full bg-slate-200">
-              <div className="h-full w-[72%] rounded-full bg-indigo-600" />
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
     </div>

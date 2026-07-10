@@ -16,4 +16,4 @@ const PublicRoute = ({ children }: Props) => {
   return <>{children}</>;
 };
 
-export default PublicRoute
+export default PublicRoute;
