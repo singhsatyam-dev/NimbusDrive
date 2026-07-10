@@ -9,10 +9,8 @@ Built using React, TypeScript, Express, MongoDB Atlas, AWS S3, and deployed on V
 ## 🚀 Live Demo
 
 Frontend:
-https://cloudvault-olive.vercel.app
 
 Backend API:
-https://cloudvault-api-w5ar.onrender.com
 
 ---
 
