@@ -18,35 +18,49 @@ const TopNavbar = () => {
       .join("")
       .toUpperCase() || "U";
 
+  const hour = new Date().getHours();
+
+  const greeting =
+    hour < 12 ? "Good Morning" : hour < 18 ? "Good Afternoon" : "Good Evening";
+
   return (
-    <header className="sticky top-0 z-20 flex h-20 items-center justify-between border-b border-slate-200 bg-white px-8">
-      {/* Left */}
-      <div className="flex items-center gap-3">
-        <MobileSidebar />
+    <header className="sticky top-0 z-20 border-b border-border bg-background/90 backdrop-blur-md">
+      <div className="mx-auto flex h-20 max-w-[1600px] items-center justify-between px-8">
+        {/* Left */}
 
-        <div>
-          <h1 className="text-xl font-bold text-slate-900 md:text-2xl">
-            Welcome, {user?.name || "User"} 👋
-          </h1>
+        <div className="flex items-center gap-4">
+          <MobileSidebar />
 
-          <p className="hidden text-sm text-slate-500 md:block">
-            Securely manage your files.
-          </p>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+              NimbusDrive Workspace
+            </p>
+            <h1 className="mt-1 text-2xl font-semibold tracking-tight text-foreground">
+              {greeting}, {user?.name ?? "User"} 👋
+            </h1>
+          </div>
         </div>
-      </div>
 
-      {/* Right */}
-      <div className="flex items-center gap-4">
-        <UploadDialog>
-          <Button>
-            <Upload className="mr-2 h-4 w-4" />
-            Upload
-          </Button>
-        </UploadDialog>
+        {/* Right */}
 
-        <Avatar className="cursor-pointer">
-          <AvatarFallback>{initials}</AvatarFallback>
-        </Avatar>
+        <div className="flex items-center gap-4">
+          <UploadDialog>
+            <Button className="h-11 rounded-xl px-5 shadow-sm">
+              <Upload className="mr-2 h-4 w-4" />
+              Upload Files
+            </Button>
+          </UploadDialog>
+
+          <div className="relative">
+            <Avatar className="h-11 w-11 border border-border shadow-sm">
+              <AvatarFallback className="bg-muted font-medium">
+                {initials}
+              </AvatarFallback>
+            </Avatar>
+
+            <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-background bg-emerald-500" />
+          </div>
+        </div>
       </div>
     </header>
   );

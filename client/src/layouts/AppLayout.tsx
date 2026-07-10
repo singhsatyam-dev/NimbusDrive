@@ -5,16 +5,18 @@ import TopNavbar from "@/components/layout/TopNavbar";
 
 const AppLayout = () => {
   return (
-    <div className="flex min-h-screen bg-slate-100">
-      {/* Desktop Sidebar */}
+    <div className="flex min-h-screen bg-background">
+      {/* Sidebar */}
       <Sidebar />
 
-      {/* Main Content */}
-      <div className="flex flex-1 flex-col">
+      {/* Workspace */}
+      <div className="flex min-h-screen flex-1 flex-col overflow-hidden">
         <TopNavbar />
 
-        <main className="flex-1 overflow-y-auto p-6 lg:p-8">
-          <Outlet />
+        <main className="flex-1 overflow-y-auto bg-muted/30">
+          <div className="mx-auto w-full max-w-[1600px] px-8 py-8">
+            <Outlet />
+          </div>
         </main>
       </div>
     </div>
