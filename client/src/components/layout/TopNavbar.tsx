@@ -24,8 +24,8 @@ const TopNavbar = () => {
   const firstName = user?.name?.split(" ")[0] || "User";
 
   return (
-    <header className="flex h-20 items-center justify-between border-b border-slate-200 bg-white px-4 md:px-8">
-      <div className="mx-auto flex h-20 max-w-[1600px] items-center justify-between px-8">
+    <header className="border-b border-slate-200 bg-white">
+      <div className="mx-auto flex h-20 max-w-[1600px] items-center justify-between px-4 md:px-8">
         {/* Left */}
 
         <div>
@@ -41,7 +41,7 @@ const TopNavbar = () => {
             </p>
 
             <h1 className="mt-1 text-4xl font-bold text-slate-900">
-              Good {greeting}, {user?.name} 👋
+              {greeting}, {user?.name} 👋
             </h1>
 
             <p className="mt-1 text-sm text-slate-500">
