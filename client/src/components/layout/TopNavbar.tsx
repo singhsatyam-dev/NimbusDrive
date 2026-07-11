@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import UploadDialog from "@/components/upload/UploadDialog";
 import { useAuthStore } from "@/store/authStore";
 
+import MobileSidebar from "./MobileSidebar";
+
 const TopNavbar = () => {
   const user = useAuthStore((state) => state.user);
 
@@ -29,10 +31,13 @@ const TopNavbar = () => {
         {/* Left */}
 
         <div>
-          {/* Mobile Greeting */}
-          <h1 className="text-xl font-bold text-slate-900 md:hidden">
-            Hi, {firstName} 👋
-          </h1>
+          <div className="flex items-center gap-3 md:hidden">
+            <MobileSidebar />
+            {/* Mobile Greeting */}
+            <h1 className="text-xl font-bold text-slate-900 md:hidden">
+              Hi, {firstName} 👋
+            </h1>
+          </div>
 
           {/* Desktop Greeting */}
           <div className="hidden md:block">
@@ -43,10 +48,6 @@ const TopNavbar = () => {
             <h1 className="mt-1 text-4xl font-bold text-slate-900">
               {greeting}, {user?.name} 👋
             </h1>
-
-            <p className="mt-1 text-sm text-slate-500">
-              Manage your cloud files securely.
-            </p>
           </div>
         </div>
 
