@@ -23,21 +23,32 @@ const TopNavbar = () => {
   const greeting =
     hour < 12 ? "Good Morning" : hour < 18 ? "Good Afternoon" : "Good Evening";
 
+  const firstName = user?.name?.split(" ")[0] || "User";
+
   return (
-    <header className="sticky top-0 z-20 border-b border-border bg-background/90 backdrop-blur-md">
+    <header className="flex h-20 items-center justify-between border-b border-slate-200 bg-white px-4 md:px-8">
       <div className="mx-auto flex h-20 max-w-[1600px] items-center justify-between px-8">
         {/* Left */}
 
-        <div className="flex items-center gap-4">
-          <MobileSidebar />
+        <div>
+          {/* Mobile Greeting */}
+          <h1 className="text-xl font-bold text-slate-900 md:hidden">
+            Hi, {firstName} 👋
+          </h1>
 
-          <div>
-            <p className="hidden text-xs font-semibold uppercase tracking-[0.3em] text-blue-700 md:block">
+          {/* Desktop Greeting */}
+          <div className="hidden md:block">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary">
               NimbusDrive Workspace
             </p>
-            <h1 className="mt-1 text-2xl font-semibold tracking-tight text-foreground">
-              {greeting}, {user?.name ?? "User"} 👋
+
+            <h1 className="mt-1 text-4xl font-bold text-slate-900">
+              Good {greeting}, {user?.name} 👋
             </h1>
+
+            <p className="mt-1 text-sm text-slate-500">
+              Manage your cloud files securely.
+            </p>
           </div>
         </div>
 
@@ -45,9 +56,10 @@ const TopNavbar = () => {
 
         <div className="flex items-center gap-4">
           <UploadDialog>
-            <Button className="h-11 rounded-xl px-5 shadow-sm">
-              <Upload className="mr-2 h-4 w-4" />
-              Upload Files
+            <Button className="rounded-2xl px-4 py-6 shadow-lg shadow-primary/20 md:px-6">
+              <Upload className="h-5 w-5 md:mr-2" />
+
+              <span className="hidden md:inline">Upload Files</span>
             </Button>
           </UploadDialog>
 
