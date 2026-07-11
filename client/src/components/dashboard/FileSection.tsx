@@ -1,5 +1,6 @@
 import EmptyState from "./EmptyState";
 import FileTable from "./FileTable";
+import FileCard from "./MobileCard";
 
 import type { FileData } from "@/services/file.service";
 
@@ -12,7 +13,21 @@ const FileSection = ({ files }: Props) => {
     return <EmptyState />;
   }
 
-  return <FileTable files={files} />;
+  return (
+    <>
+      {/* Desktop */}
+      <div className="hidden md:block">
+        <FileTable files={files} />
+      </div>
+
+      {/* Mobile */}
+      <div className="space-y-5 md:hidden">
+        {files.map((file) => (
+          <FileCard key={file._id} file={file} />
+        ))}
+      </div>
+    </>
+  );
 };
 
 export default FileSection;

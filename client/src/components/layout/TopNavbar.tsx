@@ -6,8 +6,6 @@ import { Button } from "@/components/ui/button";
 import UploadDialog from "@/components/upload/UploadDialog";
 import { useAuthStore } from "@/store/authStore";
 
-import MobileSidebar from "./MobileSidebar";
-
 const TopNavbar = () => {
   const user = useAuthStore((state) => state.user);
 
