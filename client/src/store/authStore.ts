@@ -55,7 +55,7 @@ export const useAuthStore = create<AuthState>((set) => ({
     });
   },
 
-  //instead of a controller simple clear the token
+  //instead of a controller simply clear the token
   logout: () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
